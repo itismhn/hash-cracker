@@ -17,14 +17,16 @@ def user_input():
             hash_identifier(input_hash)
             break
         elif input_option == '2':
-            # hash_cracker()
+            hash_cracker(input_hash)
             break
         else:
             print("\n[!] Choose Correct Option!\n")
             continue
-    
-def hash_identifier(input_hash):
-    print(input_hash)
 
+def hash_identifier(input_hash):
+    pass
+
+def hash_cracker(input_hash):
+    pass
 if __name__ == "__main__":
     main()
