@@ -1,4 +1,5 @@
 from time import sleep
+
 def main():
     print("""
 █──█ █▀▀█ █▀▀ █──█ ── █▀▀ █▀▀█ █▀▀█ █▀▀ █─█ █▀▀ █▀▀█ 
