@@ -1,3 +1,4 @@
+from time import sleep
 def main():
     print("""
 █──█ █▀▀█ █▀▀ █──█ ── █▀▀ █▀▀█ █▀▀█ █▀▀ █─█ █▀▀ █▀▀█ 
@@ -8,8 +9,7 @@ def main():
     user_input()
 def user_input():
     input_hash = input("[+] Enter your hash: ")
-    # time.sleep(2)
-    # clear screen
+    sleep(1)
     while True:
         print("----------\n[1] Hash Identifier\n[2] Hash Cracker\n")
         input_option = input("[+] Please Enter an Option: ")
@@ -18,7 +18,7 @@ def user_input():
             break
         elif input_option == '2':
             # hash_cracker()
-            pass
+            break
         else:
             print("\n[!] Choose Correct Option!\n")
             continue
