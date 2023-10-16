@@ -7,9 +7,22 @@ def main():
 """)
     user_input()
 def user_input():
-    print("[1] Hash Identifier\n[2] Hash Cracker")
-    input_option = input("Please Enter an Option: ")
-
+    input_hash = input("[+] Enter your hash: ")
+    # time.sleep(2)
+    # clear screen
+    while True:
+        print("----------\n[1] Hash Identifier\n[2] Hash Cracker\n")
+        input_option = input("[+] Please Enter an Option: ")
+        if input_option == '1':
+            hash_identifier(input_hash)
+            break
+        elif input_option == '2':
+            # hash_cracker()
+            pass
+        else:
+            print("\n[!] Choose Correct Option!\n")
+            continue
+    
 def hash_identifier(input_hash):
     print(input_hash)
 
