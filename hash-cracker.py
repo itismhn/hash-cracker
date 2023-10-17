@@ -13,8 +13,9 @@ def user_input():
         input_hash = input("[+] Enter your hash: ")
         sleep(0.7)
         while True:
-            print("----------\n[1] Hash Identifier\n[2] Hash Cracker\n")
+            print("----------\n[1] Hash Identifier\n[2] Hash Cracker")
             input_option = input("[+] Please Enter an Option: ")
+            sleep(0.7)
             if input_option == '1':
                 hash_identifier(input_hash)
                 break
@@ -44,6 +45,10 @@ def hash_identifier(input_hash):
     except:
         print("[!] Got Error!")
 def hash_cracker(input_hash):
-    pass
+    print('----------')
+    print("[- choose an word-List to crack the hash -]")
+    print("[-1-] number-list\n[-2-] Your word-list file")
+    list_option = input("[*] Please Enter a list: ")
+
 if __name__ == "__main__":
     main()
