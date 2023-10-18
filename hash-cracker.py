@@ -5,7 +5,7 @@ def main():
 █──█ █▀▀█ █▀▀ █──█ ── █▀▀ █▀▀█ █▀▀█ █▀▀ █─█ █▀▀ █▀▀█ 
 █▀▀█ █▄▄█ ▀▀█ █▀▀█ ▀▀ █── █▄▄▀ █▄▄█ █── █▀▄ █▀▀ █▄▄▀ 
 ▀──▀ ▀──▀ ▀▀▀ ▀──▀ ── ▀▀▀ ▀─▀▀ ▀──▀ ▀▀▀ ▀─▀ ▀▀▀ ▀─▀▀
-@itisMHN v1.1
+@itisMHN v1.1 - https://github.com/itismhn/hash-cracker
 """)
     user_input()
 def user_input():
@@ -49,6 +49,14 @@ def hash_cracker(input_hash):
     print("[- choose an word-List to crack the hash -]")
     print("[-1-] number-list\n[-2-] Your word-list file")
     list_option = input("[*] Please Enter a list: ")
+    if list_option == '1':
+                # main crack function
+                pass
+    elif list_option == '2':
+        print("coming soon ...")
+    else:
+        print("\n[!] Choose Correct Option!\n")
+        sleep(0.7)
 
 if __name__ == "__main__":
     main()
