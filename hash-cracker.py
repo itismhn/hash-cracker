@@ -63,7 +63,19 @@ def hash_cracker(input_hash,hash_type):
             sleep(0.7)
     except TypeError as err:
         print(f"Got {err}\n Enter valid number")
-def main_cracker(input_hash,hash_digit,hash_type):
-    print(input_hash,hash_digit,hash_type)
+def main_cracker(input_hash,num_digit,hash_type):
+    # create list by input digit
+    def generate_numbers_with_digit(num_digit):
+        min_number = 10**(num_digits-1)
+        max_number = 10**num_digits - 1
+        numbers_list = [str(i).zfill(num_digits) for i in range(min_number, max_number+1)]
+        return numbers_list
+    if(hash_type == "MD5"):
+        print("MDF")
+    elif(hash_type == "SHA1"):
+        print('SHA1')
+    else:
+        print('None')
+
 if __name__ == "__main__":
     main()
