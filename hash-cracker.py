@@ -17,12 +17,12 @@ def user_input():
             input_option = input("[+] Please Enter an Option: ")
             sleep(0.7)
             if input_option == '1':
-                print("[-] Hash is ")
-                print(hash_identifier(input_hash))
+                hash_type = hash_identifier(input_hash)
+                print(f'[-] Hash is {hash_type}')
                 break
             elif input_option == '2':
-                print("[-] Hash is ")
-                print(hash_cracker(input_hash))
+                hash_type = hash_identifier(input_hash)
+                hash_cracker(input_hash,hash_type)
                 break
             else:
                 print("\n[!] Choose Correct Option!\n")
@@ -45,7 +45,7 @@ def hash_identifier(input_hash):
             print("[-] can't detect hash")
     except:
         print("[!] Got Error!")
-def hash_cracker(input_hash):
+def hash_cracker(input_hash,hash_type):
     try:
         print('----------')
         print("[++] choose an word-List to crack the hash")
@@ -55,6 +55,7 @@ def hash_cracker(input_hash):
             print('----------')
             print("[+++] for example enter 4 for testing (0000 - 9999)")
             number_digit = int(input("[+] Enter a digit: "))
+            main_cracker(input_hash,number_digit,hash_type)
         elif list_option == '2':
             print("coming soon ...")
         else:
@@ -62,7 +63,7 @@ def hash_cracker(input_hash):
             sleep(0.7)
     except TypeError as err:
         print(f"Got {err}\n Enter valid number")
-def main_cracker(input_hash,hash_digit):
-    print(input_hash)
+def main_cracker(input_hash,hash_digit,hash_type):
+    print(input_hash,hash_digit,hash_type)
 if __name__ == "__main__":
     main()
