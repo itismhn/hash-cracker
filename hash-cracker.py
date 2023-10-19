@@ -47,14 +47,16 @@ def hash_identifier(input_hash):
     except:
         print("[!] Got Error!")
 def hash_cracker(input_hash,hash_type):
+    hash_type = hash_identifier(input_hash)
+    print(f'[-] Hash is {hash_type}')
     try:
         print('----------')
-        print("[++] choose an word-List to crack the hash")
-        print("[-1-] number-list\n[-2-] Your word-list file")
+        print("[+] choose an word-List to crack the hash")
+        print("[1] number-list\n[2] Your word-list file")
         list_option = input("[*] Please Enter a list: ")
         if list_option == '1':
             print('----------')
-            print("[+++] for example enter 4 for testing (0000 - 9999)")
+            print("[++] for example enter 4 for testing (0000 - 9999)")
             num_digit = int(input("[+] Enter a digit: "))
             main_cracker(input_hash,num_digit,hash_type)
         elif list_option == '2':
@@ -77,11 +79,17 @@ def main_cracker(input_hash,num_digit,hash_type):
             number_hash = hashlib.md5(number.encode())
             number_hash = number_hash.hexdigest()
             if(input_hash == number_hash):
-                print(f'[$] Plain password found!\n {input_hash} --> {number}')
+                print(f'----------\n[$] Plain password found!\n {input_hash} --> {number}')
             else:
                 continue
     elif(hash_type == "SHA1"):
-        print('SHA1')
+        for number in numbers_list:
+            number_hash = hashlib.sha1(number.encode())
+            number_hash = number_hash.hexdigest()
+            if(input_hash == number_hash):
+                print(f'----------\n[$] Plain password found!\n {input_hash} --> {number}')
+            else:
+                continue
     else:
         print('None')
 
