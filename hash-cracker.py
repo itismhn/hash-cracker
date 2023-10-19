@@ -1,4 +1,5 @@
 from time import sleep
+import hashlib
 
 def main():
     print("""
@@ -54,8 +55,8 @@ def hash_cracker(input_hash,hash_type):
         if list_option == '1':
             print('----------')
             print("[+++] for example enter 4 for testing (0000 - 9999)")
-            number_digit = int(input("[+] Enter a digit: "))
-            main_cracker(input_hash,number_digit,hash_type)
+            num_digit = int(input("[+] Enter a digit: "))
+            main_cracker(input_hash,num_digit,hash_type)
         elif list_option == '2':
             print("coming soon ...")
         else:
@@ -66,12 +67,19 @@ def hash_cracker(input_hash,hash_type):
 def main_cracker(input_hash,num_digit,hash_type):
     # create list by input digit
     def generate_numbers_with_digit(num_digit):
-        min_number = 10**(num_digits-1)
-        max_number = 10**num_digits - 1
-        numbers_list = [str(i).zfill(num_digits) for i in range(min_number, max_number+1)]
+        min_number = 10**(num_digit-1)
+        max_number = 10**num_digit - 1
+        numbers_list = [str(i).zfill(num_digit) for i in range(min_number, max_number+1)]
         return numbers_list
+    numbers_list = generate_numbers_with_digit(num_digit)
     if(hash_type == "MD5"):
-        print("MDF")
+        for number in numbers_list:
+            number_hash = hashlib.md5(number.encode())
+            number_hash = number_hash.hexdigest()
+            if(input_hash == number_hash):
+                print(f'[$] Plain password found!\n {input_hash} --> {number}')
+            else:
+                continue
     elif(hash_type == "SHA1"):
         print('SHA1')
     else:
