@@ -1,5 +1,5 @@
 import hashlib
-
+# main function
 def main():
     print("""
 █──█ █▀▀█ █▀▀ █──█ ── █▀▀ █▀▀█ █▀▀█ █▀▀ █─█ █▀▀ █▀▀█ 
@@ -8,6 +8,7 @@ def main():
 @itisMHN v1.1 - https://github.com/itismhn/hash-cracker
 """)
     user_input()
+# user input function - handle hash input and first options
 def user_input():
     try:
         input_hash = input("[+] Enter your hash: ")
@@ -29,6 +30,7 @@ def user_input():
             print("\n [!] Exiting...")
     except Exception as err:
         print("[!] Got Error : ", err)
+# this function checks hash type and get input from user input func
 def hash_identifier(input_hash):
     md5_valid_hash = "9b63036e1089e21b8a599bdfb720b7da"
     sha1_valid_hash = "3b3a15497ad565a6045a1649d13114d625a93283"
@@ -41,6 +43,7 @@ def hash_identifier(input_hash):
             print("[-] can't detect hash")
     except:
         print("[!] Got Error!")
+# this function get main options to crack hash and pass it to main cracker func
 def hash_cracker(input_hash,hash_type):
     hash_type = hash_identifier(input_hash)
     print(f'[-] Hash is {hash_type}')
@@ -68,6 +71,7 @@ def main_cracker(input_hash,num_digit,hash_type):
         numbers_list = [str(i).zfill(num_digit) for i in range(min_number, max_number+1)]
         return numbers_list
     numbers_list = generate_numbers_with_digit(num_digit)
+    # rainbow attack start here
     if(hash_type == "MD5"):
         for number in numbers_list:
             number_hash = hashlib.md5(number.encode())
